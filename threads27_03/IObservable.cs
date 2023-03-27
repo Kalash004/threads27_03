@@ -9,10 +9,11 @@ namespace threads27_03
     enum EventType
     {
         Damaged,
-        Dead
+        Healed
     }
     internal interface IObservable
     {
-        public void DamageHappened(EventType type, int damage);   
+        public void DamageHappened(EventType type, int damage, int hp_left);
+        public void HealHappened(EventType type, int heal_amount, int hp_left);
     }
 }

@@ -1,0 +1,15 @@
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.csproj.AssemblyReference.cache
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.GeneratedMSBuildEditorConfig.editorconfig
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.AssemblyInfoInputs.cache
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.AssemblyInfo.cs
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.csproj.CoreCompileInputs.cache
+M:\csharp\Middle\threads27_03\threads27_03\bin\Debug\net6.0\threads27_03.exe
+M:\csharp\Middle\threads27_03\threads27_03\bin\Debug\net6.0\threads27_03.deps.json
+M:\csharp\Middle\threads27_03\threads27_03\bin\Debug\net6.0\threads27_03.runtimeconfig.json
+M:\csharp\Middle\threads27_03\threads27_03\bin\Debug\net6.0\threads27_03.dll
+M:\csharp\Middle\threads27_03\threads27_03\bin\Debug\net6.0\threads27_03.pdb
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.dll
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\refint\threads27_03.dll
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.pdb
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\threads27_03.genruntimeconfig.cache
+M:\csharp\Middle\threads27_03\threads27_03\obj\Debug\net6.0\ref\threads27_03.dll
