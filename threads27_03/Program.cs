@@ -8,7 +8,8 @@
             Thread damager = new Thread(() => Damage(player,10));
             Thread healer = new Thread(() => Heal(player,10));
             Reader reader = new Reader(player);
-
+            damager.Start();
+            healer.Start();
         }
 
         public static void Damage(Player plr, int testamount)

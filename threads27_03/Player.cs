@@ -12,6 +12,7 @@ namespace threads27_03
         private int health;
         private List<IObservable> observers = new List<IObservable>();
         private ReaderWriterLockSlim _locker = new ReaderWriterLockSlim();
+        bool dead = false;
 
         internal void GetDamaged()
         {
@@ -29,35 +30,33 @@ namespace threads27_03
 
         public void GetDamaged(int amount)
         {
-            _locker.EnterReadLock();
-            if (health == 0) return;
-            _locker.ExitReadLock();
-            _locker.EnterWriteLock();
-            if (health < amount) amount = health;
-            this.Health = -amount;
-            Thread event_notif = new Thread(() => NotifyDamage(EventType.Damaged, amount, this.Health));
-            if (observers.Count > 0)
+            lock (this)
             {
-                event_notif.Start();
+                if (health <= 0) return;
+                if (health < amount) amount = health;
+                this.Health = this.Health - amount;
+                Thread event_notif = new Thread(() => NotifyDamage(EventType.Damaged, amount, this.Health));
+                if (observers.Count > 0)
+                {
+                    event_notif.Start();
+                }
+                event_notif.Join();
             }
-            event_notif.Join();
-            _locker.ExitWriteLock();
         }
 
         public void GetHealed(int amount)
         {
-            _locker.EnterReadLock();
-            if (health == 0) return;
-            _locker.ExitReadLock();
-            _locker.EnterWriteLock();
-            this.Health = +amount;
-            Thread event_notif = new Thread(() => NotifyHealed(EventType.Healed, amount, this.Health));
-            if (observers.Count > 0)
+            lock (this)
             {
-                event_notif.Start();
+                if (this.Health <= 0) return;
+                this.Health = this.Health + amount;
+                Thread event_notif = new Thread(() => NotifyHealed(EventType.Healed, amount, this.Health));
+                if (observers.Count > 0)
+                {
+                    event_notif.Start();
+                }
+                event_notif.Join();
             }
-            event_notif.Join();
-            _locker.ExitWriteLock();
         }
 
         public int ReadHealth()
@@ -67,7 +66,8 @@ namespace threads27_03
                 _locker.EnterReadLock();
                 return this.Health;
 
-            } finally
+            }
+            finally
             {
                 _locker.ExitReadLock();
             }
@@ -92,7 +92,7 @@ namespace threads27_03
         {
             foreach (var observer in observers)
             {
-                observer.HealHappened(type, healed, health); 
+                observer.HealHappened(type, healed, health);
             }
         }
     }
