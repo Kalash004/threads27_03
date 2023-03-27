@@ -14,9 +14,8 @@
             string path = "dluznici.csv";
             List<String[]> list = ArrayIt(path);
             int[] ids = GetIds(list);
-            ThreadedQuickSort<int> sort = new ThreadedQuickSort<int>();
-            sort.QuickSort(ids);
 
+           
         }
 
         private static int[] GetIds(List<String[]> list)
